@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Article {
-  id            String   @id @default(cuid())
+  id            String   @id @default(uuid())
   title         String
   slug          String   @unique
   excerpt       String
@@ -21,7 +21,7 @@ model Article {
 }
 
 model NewsletterSubscriber {
-  id           String   @id @default(cuid())
+  id           String   @id @default(uuid())
   email        String   @unique
   subscribedAt DateTime @default(now())
   active       Boolean  @default(true)

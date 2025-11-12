@@ -1,5 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
+declare const process: any; // To avoid TS error about process not being defined
+
 const prisma = new PrismaClient();
 
 const articles = [
