@@ -24,11 +24,11 @@
   <div class="mx-auto max-w-5xl px-4 py-4">
     <div class="flex items-center justify-between">
       <a href="/" class="flex items-center">
-        <img
-          src="/avatar.jpg"
+        <!-- <img
+          src={avatar}
           alt="Profile"
           class="h-12 w-12 rounded-full object-cover"
-        />
+        /> -->
       </a>
 
       <nav class="hidden md:flex md:items-center md:gap-8">

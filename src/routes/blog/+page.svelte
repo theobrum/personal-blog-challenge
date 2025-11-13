@@ -3,25 +3,31 @@
   import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
   import ErrorMessage from '$lib/components/ErrorMessage.svelte';
   import EmptyState from '$lib/components/EmptyState.svelte';
-  import AuthorBio from '$lib/components/AuthorBio.svelte';
-  import { useArticles, fetchLatestArticles } from '$lib/hooks/useArticles.svelte';
+  import { useArticles, fetchAllArticles } from '$lib/hooks/useArticles.svelte';
 
-  const articlesState = useArticles(fetchLatestArticles);
+  const articlesState = useArticles(fetchAllArticles);
 
   $effect(() => {
     articlesState.load();
   });
 </script>
 
+<svelte:head>
+  <title>Blog - Paulina</title>
+  <meta name="description" content="Read all articles about web development, coding journey, and more." />
+</svelte:head>
+
 <div class="mx-auto max-w-3xl px-4 py-12">
-  <AuthorBio />
+  <header class="mb-12">
+    <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+      Blog
+    </h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400">
+      Thoughts, tutorials, and experiences from my coding journey
+    </p>
+  </header>
 
   <section>
-    <div class="mb-8 flex items-center gap-3">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Latest Articles</h2>
-      <div class="h-1 w-16 bg-blue-500"></div>
-    </div>
-
     {#if articlesState.loading}
       <LoadingSpinner message="Loading articles..." />
     {:else if articlesState.error}
@@ -33,15 +39,6 @@
         {#each articlesState.articles as article (article.id)}
           <ArticleCard {article} />
         {/each}
-      </div>
-
-      <div class="mt-12">
-        <a
-          href="/blog"
-          class="inline-block border-b-2 border-gray-900 font-medium text-gray-900 transition-colors hover:border-gray-600 hover:text-gray-600 dark:border-white dark:text-white dark:hover:border-gray-300 dark:hover:text-gray-300"
-        >
-          View all articles
-        </a>
       </div>
     {/if}
   </section>
