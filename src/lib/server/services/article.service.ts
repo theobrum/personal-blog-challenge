@@ -4,24 +4,28 @@ import { ApiError } from './error-handler.service';
 
 export const articleService = {
   async getAll(): Promise<Article[]> {
-    return await prisma.article.findMany({
+    const articles: Article[] = await prisma.article.findMany({
       orderBy: {
         publishedDate: 'desc'
       }
     });
+    
+    return articles;
   },
 
   async getLatest(limit: number = 5): Promise<Article[]> {
-    return await prisma.article.findMany({
+    const articles: Article[] = await prisma.article.findMany({
       orderBy: {
         publishedDate: 'desc'
       },
       take: limit
     });
+    
+    return articles;
   },
 
   async getBySlug(slug: string): Promise<Article> {
-    const article = await prisma.article.findUnique({
+    const article: Article | null = await prisma.article.findUnique({
       where: { slug }
     });
 

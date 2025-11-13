@@ -16,7 +16,7 @@ export const newsletterService = {
   },
 
   async checkIfExists(email: string): Promise<boolean> {
-    const existing = await prisma.newsletterSubscriber.findUnique({
+    const existing: NewsletterSubscriber | null = await prisma.newsletterSubscriber.findUnique({
       where: { email: email.trim() }
     });
     return !!existing;
@@ -32,8 +32,10 @@ export const newsletterService = {
       throw new ApiError('Email already subscribed', 409);
     }
 
-    return await prisma.newsletterSubscriber.create({
+    const subscriber: NewsletterSubscriber = await prisma.newsletterSubscriber.create({
       data: { email: trimmedEmail }
     });
+    
+    return subscriber;
   }
 };

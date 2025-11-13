@@ -1,6 +1,16 @@
+import { json } from '@sveltejs/kit';
 import { articleService } from '$lib/server/services/article.service';
-import { apiHandler } from '$lib/server/utils/api-handler';
+import type { Article } from '@prisma/client';
+import type { RequestHandler } from './$types';
 
-export async function GET() {
-  return apiHandler(() => articleService.getAll(), 'Failed to fetch articles');
-}
+export type ArticlesResponse = Article[];
+
+export const GET: RequestHandler = async () => {
+  try {
+    const articles: Article[] = await articleService.getAll();
+    return json(articles);
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    return new Response('Failed to fetch articles', { status: 500 });
+  }
+};

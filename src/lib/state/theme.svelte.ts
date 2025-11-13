@@ -10,11 +10,12 @@ function createThemeStore() {
     const stored = localStorage.getItem(THEME_KEY);
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    currentTheme = stored === Theme.DARK ? Theme.DARK : 
-                   stored === Theme.LIGHT ? Theme.LIGHT : 
-                   prefersDark ? Theme.DARK : Theme.LIGHT;
+    const initialTheme = stored === Theme.DARK ? Theme.DARK : 
+                         stored === Theme.LIGHT ? Theme.LIGHT : 
+                         prefersDark ? Theme.DARK : Theme.LIGHT;
     
-    applyTheme(currentTheme);
+    currentTheme = initialTheme;
+    applyTheme(initialTheme);
   }
 
   function applyTheme(theme: Theme) {

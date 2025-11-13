@@ -1,28 +1,6 @@
 <script lang="ts">
-  import { GithubIcon, LinkedinIcon, XIcon, Heart, Coffee } from 'lucide-svelte';
-
-  const socialLinks = [
-    { 
-      href: 'https://X.com', 
-      label: 'X',
-      Component: XIcon
-    },
-    { 
-      href: 'https://github.com', 
-      label: 'GitHub',
-      Component: GithubIcon
-    },
-    { 
-      href: 'https://linkedin.com', 
-      label: 'LinkedIn',
-      Component: LinkedinIcon
-    },
-    { 
-      href: 'https://codepen.io', 
-      label: 'CodePen',
-      icon: 'C'
-    }
-  ];
+  import { Heart, Coffee } from 'lucide-svelte';
+  import SocialLinks from './SocialLinks.svelte';
 </script>
 
 <footer class="border-t border-gray-200 dark:border-gray-800">
@@ -35,23 +13,7 @@
         <Coffee size={16} />
       </p>
 
-      <div class="flex items-center gap-4">
-        {#each socialLinks as link}
-          <a
-            href={link.href}
-            aria-label={link.label}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
-          >
-            {#if link.Component}
-              <svelte:component this={link.Component} size={20} />
-            {:else if link.icon === 'C'}
-              <span class="text-lg font-bold">{link.icon}</span>
-            {/if}
-          </a>
-        {/each}
-      </div>
+      <SocialLinks />
     </div>
   </div>
 </footer>
