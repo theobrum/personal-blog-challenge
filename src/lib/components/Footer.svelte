@@ -3,7 +3,8 @@
   import { Heart, Coffee } from 'lucide-svelte';
 </script>
 
-<footer class="border-t border-[hsl(var(--border))] px-6 py-8 md:px-8">
+<!-- SIN border-t -->
+<footer class="px-6 py-8 md:px-8">
   <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
     <p class="flex items-center gap-1 text-sm text-[hsl(var(--muted-foreground))]">
       Made with 

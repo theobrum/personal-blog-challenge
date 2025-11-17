@@ -9,7 +9,7 @@
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Twitter"
-    class="rounded-lg p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
+    class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
   >
     <Twitter size={20} />
   </a>
@@ -18,7 +18,7 @@
     target="_blank"
     rel="noopener noreferrer"
     aria-label="GitHub"
-    class="rounded-lg p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
+    class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
   >
     <Github size={20} />
   </a>
@@ -27,7 +27,7 @@
     target="_blank"
     rel="noopener noreferrer"
     aria-label="LinkedIn"
-    class="rounded-lg p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
+    class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
   >
     <Linkedin size={20} />
   </a>
@@ -36,7 +36,7 @@
     target="_blank"
     rel="noopener noreferrer"
     aria-label="CodePen"
-    class="rounded-lg p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
+    class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
   >
     <Code size={20} />
   </a>

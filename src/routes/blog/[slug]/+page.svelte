@@ -32,7 +32,7 @@
       <ErrorMessage message={articleState.error} />
       <a
         href="/blog"
-        class="inline-flex items-center gap-2 text-gray-700 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        class="inline-flex items-center gap-2 text-[hsl(var(--foreground))] transition-colors hover:text-[hsl(var(--primary))]"
       >
         <ArrowLeft size={20} />
         Back to blog
@@ -42,18 +42,18 @@
     <article>
       <a
         href="/blog"
-        class="mb-8 inline-flex items-center gap-2 text-gray-700 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        class="mb-8 inline-flex items-center gap-2 text-[hsl(var(--foreground))] transition-colors hover:text-[hsl(var(--primary))]"
       >
         <ArrowLeft size={20} />
         Back to blog
       </a>
 
       <header class="mb-8">
-        <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+        <h1 class="mb-4 text-4xl font-bold text-[hsl(var(--foreground))] md:text-5xl">
           {articleState.article.title}
         </h1>
 
-        <div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+        <div class="flex flex-wrap items-center gap-4 text-sm text-[hsl(var(--muted-foreground))]">
           <div class="flex items-center gap-2">
             <User size={16} />
             <span>{articleState.article.author}</span>
@@ -77,25 +77,20 @@
         </div>
       {/if}
 
-      <div class="prose prose-lg dark:prose-invert max-w-none">
-        <p class="lead text-xl text-gray-700 dark:text-gray-300">
+      <div class="prose prose-lg max-w-none dark:prose-invert">
+        <p class="lead text-xl text-[hsl(var(--muted-foreground))]">
           {articleState.article.excerpt}
         </p>
         
-        <div class="mt-6 text-gray-700 dark:text-gray-300">
+        <div class="mt-6 text-[hsl(var(--muted-foreground))]">
           {articleState.article.content}
         </div>
       </div>
-
-      <footer class="mt-12 border-t border-gray-200 pt-8 dark:border-gray-800">
-        <a
-          href="/blog"
-          class="inline-flex items-center gap-2 text-gray-700 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-        >
-          <ArrowLeft size={20} />
-          Back to all articles
-        </a>
-      </footer>
     </article>
   {/if}
 </Container>
+
+<!-- Línea divisoria final con margen -->
+<div class="px-6 md:px-8">
+  <hr class="border-t border-[hsl(var(--border))]" />
+</div>

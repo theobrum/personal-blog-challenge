@@ -1,43 +1,42 @@
 @import 'tailwindcss';
 
 :root {
-  /* Modo claro - colores con MEJOR CONTRASTE */
-  --background: 0 0% 98%; /* Gris muy claro en lugar de blanco puro */
-  --foreground: 0 0% 10%; /* Texto casi negro */
+  /* Modo claro */
+  --background: 0 0% 98%;
+  --foreground: 0 0% 5%;
   
-  --card: 0 0% 100%; /* Blanco para las cajas */
-  --card-foreground: 0 0% 10%;
+  --card: 0 0% 94%; /* Más oscuro que background para el header */
+  --card-foreground: 0 0% 5%;
   
-  --primary: 217 91% 60%; /* Azul */
+  --primary: 217 91% 60%;
   --primary-foreground: 0 0% 100%;
   
   --secondary: 0 0% 96%;
-  --secondary-foreground: 0 0% 10%;
+  --secondary-foreground: 0 0% 5%;
   
   --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%; /* Gris medio para texto secundario */
+  --muted-foreground: 0 0% 35%;
   
-  --border: 0 0% 90%; /* Bordes visibles en modo claro */
+  --border: 0 0% 88%;
 }
 
 .dark {
-  /* Modo oscuro */
-  --background: 0 0% 8%; /* Fondo muy oscuro */
-  --foreground: 0 0% 98%; /* Texto blanco */
+  --background: 0 0% 8%;
+  --foreground: 0 0% 98%;
   
-  --card: 0 0% 12%; /* Cajas un poco más claras que el fondo */
+  --card: 0 0% 11%; /* Más claro que background para el header */
   --card-foreground: 0 0% 98%;
   
-  --primary: 217 91% 60%; /* Mismo azul */
+  --primary: 217 91% 60%;
   --primary-foreground: 0 0% 100%;
   
   --secondary: 0 0% 15%;
   --secondary-foreground: 0 0% 98%;
   
   --muted: 0 0% 15%;
-  --muted-foreground: 0 0% 65%; /* Gris claro para texto secundario */
+  --muted-foreground: 0 0% 65%;
   
-  --border: 0 0% 20%; /* Bordes visibles en modo oscuro */
+  --border: 0 0% 20%;
 }
 
 body {

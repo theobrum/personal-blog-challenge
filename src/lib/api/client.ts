@@ -4,6 +4,7 @@
 // ============================================
 // Types
 // ============================================
+import type { Article, NewsletterSubscriber } from '@prisma/client';
 
 export type ArticlesResponse = Article[];
 

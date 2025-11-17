@@ -20,10 +20,10 @@
 
 <Container>
   <header class="mb-12">
-    <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+    <h1 class="mb-4 text-4xl font-bold text-[hsl(var(--foreground))] md:text-5xl">
       Blog
     </h1>
-    <p class="text-lg text-gray-600 dark:text-gray-400">
+    <p class="text-lg text-[hsl(var(--muted-foreground))]">
       Thoughts, tutorials, and experiences from my coding journey
     </p>
   </header>
@@ -44,3 +44,8 @@
     {/if}
   </section>
 </Container>
+
+<!-- Línea divisoria final con margen -->
+<div class="px-6 md:px-8">
+  <hr class="border-t border-[hsl(var(--border))]" />
+</div>

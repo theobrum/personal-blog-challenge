@@ -16,11 +16,19 @@
 
 <Container>
   <AuthorBio />
+</Container>
 
+<!-- Línea divisoria con margen -->
+<div class="px-6 md:px-8">
+  <hr class="border-t border-[hsl(var(--border))]" />
+</div>
+
+<Container>
   <section>
-    <div class="mb-8 flex items-center gap-3">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Latest Articles</h2>
-      <div class="h-1 w-16 bg-blue-600"></div>
+    <!-- Latest Articles con línea decorativa a la derecha -->
+    <div class="mb-8 flex items-start gap-3">
+      <h2 class="text-3xl font-bold text-[hsl(var(--foreground))]">Latest Articles</h2>
+      <div class="mt-[27px] h-1 w-13 bg-[#27a6f5] opacity-90"></div>
     </div>
 
     {#if articlesState.loading}
@@ -37,13 +45,16 @@
       </div>
 
       <div class="mt-12">
-        <a
-          href="/blog"
-          class="inline-block border-b-2 border-gray-900 font-medium text-gray-900 transition-colors hover:border-gray-600 hover:text-gray-600 dark:border-white dark:text-white dark:hover:border-gray-300 dark:hover:text-gray-300"
-        >
-          View all articles
+        <a href="/blog" class="relative inline-block font-medium text-[hsl(var(--foreground))] transition-opacity hover:opacity-70">
+          <span class="absolute bottom-0 left-0 right-0 h-1 bg-[#27a6f5] opacity-90"></span>
+          <span class="relative">View all articles</span>
         </a>
       </div>
     {/if}
   </section>
 </Container>
+
+<!-- Línea divisoria final con margen -->
+<div class="px-6 md:px-8">
+  <hr class="border-t border-[hsl(var(--border))]" />
+</div>

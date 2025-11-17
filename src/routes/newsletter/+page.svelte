@@ -31,10 +31,10 @@
       </div>
     </div>
 
-    <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+    <h1 class="mb-4 text-4xl font-bold text-[hsl(var(--foreground))] md:text-5xl">
       Stay in the Loop
     </h1>
-    <p class="mb-8 text-xl text-gray-600 dark:text-gray-400">
+    <p class="mb-8 text-xl text-[hsl(var(--muted-foreground))]">
       Get new articles and updates delivered straight to your inbox
     </p>
   </div>
@@ -42,10 +42,10 @@
   {#if newsletterState.success}
     <div class="rounded-lg bg-green-50 p-8 text-center dark:bg-green-900/20">
       <CheckCircle size={48} class="mx-auto mb-4 text-green-600 dark:text-green-400" />
-      <h2 class="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
+      <h2 class="mb-2 text-2xl font-bold text-[hsl(var(--foreground))]">
         You're Subscribed!
       </h2>
-      <p class="mb-6 text-gray-700 dark:text-gray-300">
+      <p class="mb-6 text-[hsl(var(--muted-foreground))]">
         Thanks for subscribing! Check your inbox for a confirmation email.
       </p>
       <button
@@ -56,10 +56,10 @@
       </button>
     </div>
   {:else}
-    <div class="rounded-lg border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+    <div class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-8 shadow-sm">
       <form onsubmit={handleSubmit} class="space-y-6">
         <div>
-          <label for="email" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label for="email" class="mb-2 block text-sm font-medium text-[hsl(var(--foreground))]">
             Email Address
           </label>
           <input
@@ -67,9 +67,10 @@
             id="email"
             bind:value={email}
             required
+            autocomplete="email"
             placeholder="you@example.com"
             disabled={newsletterState.loading}
-            class="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+            class="w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-3 text-[hsl(var(--foreground))] focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
           />
         </div>
 
@@ -93,7 +94,7 @@
         </button>
       </form>
 
-      <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+      <p class="mt-6 text-center text-sm text-[hsl(var(--muted-foreground))]">
         No spam, ever. Unsubscribe at any time.
       </p>
     </div>
@@ -101,33 +102,37 @@
     <div class="mt-12 grid gap-6 md:grid-cols-3">
       <div class="text-center">
         <Mail size={32} class="mx-auto mb-3 text-blue-600 dark:text-blue-400" />
-        <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">
+        <h3 class="mb-2 font-semibold text-[hsl(var(--foreground))]">
           New Articles
         </h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
+        <p class="text-sm text-[hsl(var(--muted-foreground))]">
           Get notified when I publish new content
         </p>
       </div>
 
       <div class="text-center">
         <CheckCircle size={32} class="mx-auto mb-3 text-green-600 dark:text-green-400" />
-        <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">
+        <h3 class="mb-2 font-semibold text-[hsl(var(--foreground))]">
           Tips & Tricks
         </h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
+        <p class="text-sm text-[hsl(var(--muted-foreground))]">
           Exclusive coding tips and best practices
         </p>
       </div>
 
       <div class="text-center">
         <CheckCircle size={32} class="mx-auto mb-3 text-purple-600 dark:text-purple-400" />
-        <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">
+        <h3 class="mb-2 font-semibold text-[hsl(var(--foreground))]">
           No Spam
         </h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
+        <p class="text-sm text-[hsl(var(--muted-foreground))]">
           Quality over quantity, always
         </p>
       </div>
     </div>
   {/if}
 </Container>
+
+<div class="px-6 md:px-8">
+  <hr class="border-t border-[hsl(var(--border))]" />
+</div>
