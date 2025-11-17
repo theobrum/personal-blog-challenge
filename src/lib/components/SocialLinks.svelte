@@ -1,45 +1,43 @@
 <script lang="ts">
-  import { GithubIcon, LinkedinIcon, XIcon } from 'lucide-svelte';
+  import { Twitter, Github, Linkedin, Code } from 'lucide-svelte';
   import { SITE_CONFIG } from '$lib/config/content';
-
-  const socialLinks = [
-    { 
-      href: SITE_CONFIG.author.social.twitter, 
-      label: 'X',
-      Component: XIcon
-    },
-    { 
-      href: SITE_CONFIG.author.social.github, 
-      label: 'GitHub',
-      Component: GithubIcon
-    },
-    { 
-      href: SITE_CONFIG.author.social.linkedin, 
-      label: 'LinkedIn',
-      Component: LinkedinIcon
-    },
-    { 
-      href: SITE_CONFIG.author.social.codepen, 
-      label: 'CodePen',
-      icon: 'C'
-    }
-  ];
 </script>
 
-<div class="flex gap-3">
-  {#each socialLinks as link}
-    <a
-      href={link.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 text-gray-700 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
-      aria-label={link.label}
-    >
-      {#if link.Component}
-        <svelte:component this={link.Component} size={20} />
-      {:else if link.icon}
-        <span class="text-lg font-bold">{link.icon}</span>
-      {/if}
-    </a>
-  {/each}
+<div class="flex items-center gap-3">
+  <a
+    href={SITE_CONFIG.author.social.twitter}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Twitter"
+    class="rounded-lg p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
+  >
+    <Twitter size={20} />
+  </a>
+  <a
+    href={SITE_CONFIG.author.social.github}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub"
+    class="rounded-lg p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
+  >
+    <Github size={20} />
+  </a>
+  <a
+    href={SITE_CONFIG.author.social.linkedin}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    class="rounded-lg p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
+  >
+    <Linkedin size={20} />
+  </a>
+  <a
+    href={SITE_CONFIG.author.social.codepen}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="CodePen"
+    class="rounded-lg p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
+  >
+    <Code size={20} />
+  </a>
 </div>

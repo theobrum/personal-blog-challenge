@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Container from '$lib/components/Container.svelte';
   import ArticleCard from '$lib/components/ArticleCard.svelte';
   import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
   import ErrorMessage from '$lib/components/ErrorMessage.svelte';
@@ -13,13 +14,13 @@
   });
 </script>
 
-<div class="mx-auto max-w-3xl px-4 py-12">
+<Container>
   <AuthorBio />
 
   <section>
     <div class="mb-8 flex items-center gap-3">
       <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Latest Articles</h2>
-      <div class="h-1 w-16 bg-blue-500"></div>
+      <div class="h-1 w-16 bg-blue-600"></div>
     </div>
 
     {#if articlesState.loading}
@@ -45,4 +46,4 @@
       </div>
     {/if}
   </section>
-</div>
+</Container>

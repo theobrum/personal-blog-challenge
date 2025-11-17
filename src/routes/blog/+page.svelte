@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Container from '$lib/components/Container.svelte';
   import ArticleCard from '$lib/components/ArticleCard.svelte';
   import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
   import ErrorMessage from '$lib/components/ErrorMessage.svelte';
@@ -17,7 +18,7 @@
   <meta name="description" content="Read all articles about web development, coding journey, and more." />
 </svelte:head>
 
-<div class="mx-auto max-w-3xl px-4 py-12">
+<Container>
   <header class="mb-12">
     <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
       Blog
@@ -42,4 +43,4 @@
       </div>
     {/if}
   </section>
-</div>
+</Container>

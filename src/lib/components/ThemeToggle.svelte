@@ -1,19 +1,15 @@
+
 <script lang="ts">
   import { Sun, Moon } from 'lucide-svelte';
-  import { themeStore } from '$lib/state/theme.svelte';
-  import { Theme } from '$lib/types';
-
-  function handleToggle() {
-    themeStore.toggle();
-  }
+  import { themeStore } from '$lib/state/theme.svelte.ts';
 </script>
 
 <button
-  onclick={handleToggle}
+  onclick={() => themeStore.toggle()}
   aria-label="Toggle theme"
-  class="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 bg-white text-gray-700 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+  class="flex h-10 w-10 items-center justify-center rounded-lg text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))]"
 >
-  {#if themeStore.current === Theme.LIGHT}
+  {#if themeStore.isDark}
     <Sun size={20} />
   {:else}
     <Moon size={20} />

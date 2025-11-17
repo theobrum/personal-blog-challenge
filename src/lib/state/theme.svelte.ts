@@ -1,59 +1,30 @@
-import { browser } from '$app/environment';
-import { Theme } from '$lib/types';
+class ThemeStore {
+  current = $state<'light' | 'dark'>('dark');
 
-const THEME_KEY = 'theme';
-
-function createThemeStore() {
-  let currentTheme = $state<Theme>(Theme.LIGHT);
-
-  if (browser) {
-    const stored = localStorage.getItem(THEME_KEY);
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const initialTheme = stored === Theme.DARK ? Theme.DARK : 
-                         stored === Theme.LIGHT ? Theme.LIGHT : 
-                         prefersDark ? Theme.DARK : Theme.LIGHT;
-    
-    currentTheme = initialTheme;
-    applyTheme(initialTheme);
-  }
-
-  function applyTheme(theme: Theme) {
-    if (!browser) return;
-    
-    if (theme === Theme.DARK) {
-      document.body.classList.add('dark');
-    } else {
-      document.body.classList.remove('dark');
+  constructor() {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme') as 'light' | 'dark' | null;
+      this.current = saved || 'dark';
     }
   }
 
-  function toggle() {
-    const newTheme = currentTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
-    currentTheme = newTheme;
-    
-    if (browser) {
-      localStorage.setItem(THEME_KEY, newTheme);
-      applyTheme(newTheme);
+  get isDark() {
+    return this.current === 'dark';
+  }
+
+  toggle() {
+    this.current = this.current === 'dark' ? 'light' : 'dark';
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', this.current);
     }
   }
 
-  function setTheme(theme: Theme) {
-    currentTheme = theme;
-    
-    if (browser) {
-      localStorage.setItem(THEME_KEY, theme);
-      applyTheme(theme);
+  setTheme(theme: 'light' | 'dark') {
+    this.current = theme;
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme);
     }
   }
-
-  return {
-    get current() {
-      return currentTheme;
-    },
-    toggle,
-    setTheme
-  };
 }
 
-export const themeStore = createThemeStore();
+export const themeStore = new ThemeStore();

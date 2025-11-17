@@ -1,28 +1,47 @@
 @import 'tailwindcss';
 
 :root {
-  --color-background-light: #ffffff;
-  --color-background-dark: #1a1a1a;
-  --color-text-light: #1a1a1a;
-  --color-text-dark: #e5e5e5;
-  --color-text-secondary-light: #6b7280;
-  --color-text-secondary-dark: #9ca3af;
+  /* Modo claro - colores con MEJOR CONTRASTE */
+  --background: 0 0% 98%; /* Gris muy claro en lugar de blanco puro */
+  --foreground: 0 0% 10%; /* Texto casi negro */
+  
+  --card: 0 0% 100%; /* Blanco para las cajas */
+  --card-foreground: 0 0% 10%;
+  
+  --primary: 217 91% 60%; /* Azul */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 10%;
+  
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 40%; /* Gris medio para texto secundario */
+  
+  --border: 0 0% 90%; /* Bordes visibles en modo claro */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.dark {
+  /* Modo oscuro */
+  --background: 0 0% 8%; /* Fondo muy oscuro */
+  --foreground: 0 0% 98%; /* Texto blanco */
+  
+  --card: 0 0% 12%; /* Cajas un poco más claras que el fondo */
+  --card-foreground: 0 0% 98%;
+  
+  --primary: 217 91% 60%; /* Mismo azul */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 98%;
+  
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%; /* Gris claro para texto secundario */
+  
+  --border: 0 0% 20%; /* Bordes visibles en modo oscuro */
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--color-background-light);
-  color: var(--color-text-light);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark {
-  background-color: var(--color-background-dark);
-  color: var(--color-text-dark);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
