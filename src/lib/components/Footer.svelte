@@ -4,7 +4,7 @@
 </script>
 
 <!-- SIN border-t -->
-<footer class="px-6 py-8 md:px-8">
+<footer class="px-6 py-4 md:px-4">
   <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
     <p class="flex items-center gap-1 text-sm text-[hsl(var(--muted-foreground))]">
       Made with 

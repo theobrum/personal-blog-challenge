@@ -2,6 +2,7 @@
   import { page } from '$app/state';
   import { Menu, X } from 'lucide-svelte';
   import ThemeToggle from './ThemeToggle.svelte';
+  import Paulina from '$lib/assets/images/retrato-mujer.jpg';
   
   let mobileMenuOpen = $state(false);
   
@@ -25,14 +26,14 @@
   }
 </script>
 
-<header class="px-6 py-4 md:px-8">
+<header class="px-6 py-1 md:px-1">
   <div class="flex items-center justify-between">
     <!-- Avatar a la izquierda -->
     <a href="/" class="flex items-center gap-3">
       <img
-        src="/avatar.jpg"
+        src={Paulina}
         alt="Paulina"
-        class="h-12 w-12 rounded-full object-cover"
+        class="h-10 w-10 rounded-lg object-cover"
       />
     </a>
 

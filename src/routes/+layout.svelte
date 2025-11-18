@@ -13,14 +13,14 @@
   });
 </script>
 
-<div class="min-h-screen bg-[hsl(var(--background))] px-4 pt-6 md:px-6 md:pt-8">
+<div class="mx-auto max-w-[900px] bg-[hsl(var(--background))] px-4 pt-6 md:px-6 md:pt-8">
   <!-- Header más ancho, con borde y redondeado -->
-  <div class="mx-auto max-w-[920px] overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))]">
+  <div class="mx-auto max-w-[640px] overflow-hidden rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))]">
     <Header />
   </div>
   
   <!-- Contenedor principal SIN rounded, SIN mb -->
-  <div class="mx-auto max-w-[900px] border border-t-0 border-[hsl(var(--border))] bg-[hsl(var(--background))]">
+  <div class="mx-auto max-w-[620px] border border-t-0 border-[hsl(var(--border))] bg-[hsl(var(--background))]">
     <main>
       {@render children()}
     </main>

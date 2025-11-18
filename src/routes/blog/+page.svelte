@@ -46,6 +46,6 @@
 </Container>
 
 <!-- Línea divisoria final con margen -->
-<div class="px-6 md:px-8">
+<div class="px-6 md:px-4">
   <hr class="border-t border-[hsl(var(--border))]" />
 </div>
