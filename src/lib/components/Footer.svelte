@@ -4,13 +4,13 @@
 </script>
 
 <!-- SIN border-t -->
-<footer class="px-6 py-4 md:px-4">
+<footer class="px-4 py-4 md:px-4">
   <div class="flex flex-row items-center justify-between gap-4">
-    <p class="flex items-center gap-1 text-sm text-[hsl(var(--muted-foreground))]">
+    <p class="flex items-center gap-1 text-[12px] text-[hsl(var(--muted-foreground))] sm:text-sm md:text-base">
       Made with 
-      <Heart size={16} class="text-red-500" fill="currentColor" />
+      <Heart size={14} class="text-red-500 sm:h-4 sm:w-4 md:h-5 md:w-5" fill="currentColor" />
       and 
-      <Coffee size={16} class="text-amber-600" />
+      <Coffee size={14} class="text-amber-600 sm:h-4 sm:w-4 md:h-5 md:w-5" />
     </p>
 
     <!-- Wrapper para achicar iconos en mobile -->

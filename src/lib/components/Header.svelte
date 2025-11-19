@@ -76,12 +76,14 @@
         <a
           href={link.href}
           onclick={closeMobileMenu}
-          class="relative text-sm font-medium text-[hsl(var(--foreground))] transition-colors hover:text-[hsl(var(--primary))]"
+          class="relative inline-block text-sm font-medium text-[hsl(var(--foreground))] transition-colors hover:text-[hsl(var(--primary))]"
         >
-          {link.label}
-          {#if isActive(link.href)}
-            <span class="absolute bottom-0 left-0 right-0 h-1 bg-[#27a6f5] opacity-90"></span>
-          {/if}
+          <span class="relative">
+            {link.label}
+            {#if isActive(link.href)}
+              <span class="absolute -bottom-1 left-0 right-0 h-1 bg-[#27a6f5] opacity-90"></span>
+            {/if}
+          </span>
         </a>
       {/each}
     </nav>
