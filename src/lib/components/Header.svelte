@@ -26,7 +26,7 @@
   }
 </script>
 
-<header class="px-6 py-1 md:px-1">
+<header class="px-1 py-1 md:px-1">
   <div class="flex items-center justify-between">
     <!-- Avatar a la izquierda -->
     <a href="/" class="flex items-center gap-3">
@@ -38,7 +38,7 @@
     </a>
 
     <!-- Nav y theme toggle a la derecha -->
-    <div class="flex items-center gap-6">
+    <div class="flex items-center gap-3">
       <nav class="hidden md:flex md:items-center md:gap-8">
         {#each navLinks as link}
           <a
@@ -47,14 +47,13 @@
           >
             {link.label}
             {#if isActive(link.href)}
-              <span class="absolute top-[18px] left-0 right-0 h-1 bg-[#27a6f5] opacity-90"></span>
+              <span class="absolute top-[18px] left-0 right-0 h-0.5 bg-[#27a6f5] opacity-90 md:h-1"></span>
             {/if}
           </a>
         {/each}
       </nav>
 
-      <ThemeToggle />
-      
+      <!-- Hamburguesa ANTES de ThemeToggle en mobile -->
       <button
         onclick={toggleMobileMenu}
         aria-label="Toggle menu"
@@ -66,6 +65,8 @@
           <Menu size={24} />
         {/if}
       </button>
+
+      <ThemeToggle />
     </div>
   </div>
 
