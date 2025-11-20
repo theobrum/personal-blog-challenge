@@ -18,14 +18,12 @@
   <AuthorBio />
 </Container>
 
-<!-- Línea divisoria con margen -->
 <div class="px-6 md:px-4">
   <hr class="border-t border-[hsl(var(--border))]" />
 </div>
 
 <Container>
   <section>
-    <!-- Latest Articles con línea decorativa a la derecha -->
     <div class="mb-8 flex items-start gap-3">
       <h2 class="text-3xl font-bold text-[hsl(var(--foreground))]">Latest Articles</h2>
       <div class="mt-[27px] h-1 w-13 bg-[#27a6f5] opacity-90"></div>
@@ -54,7 +52,6 @@
   </section>
 </Container>
 
-<!-- Línea divisoria final con margen -->
 <div class="px-4 md:px-4">
   <hr class="border-t border-[hsl(var(--border))]" />
 </div>

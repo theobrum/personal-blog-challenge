@@ -29,7 +29,14 @@
     <LoadingSpinner message="Loading article..." />
   {:else if articleState.error}
     <div class="space-y-6">
-      <ErrorMessage message={articleState.error} />
+      <div class="rounded-lg border border-yellow-200 bg-yellow-50 p-6 text-center dark:border-yellow-800 dark:bg-yellow-950">
+        <h2 class="mb-2 text-xl font-bold text-yellow-800 dark:text-yellow-200">
+          Article Not Found
+        </h2>
+        <p class="text-yellow-700 dark:text-yellow-300">
+          We couldn't find that article. It may have been moved or deleted.
+        </p>
+      </div>
       <a
         href="/blog"
         class="inline-flex items-center gap-2 text-[hsl(var(--foreground))] transition-colors hover:text-[hsl(var(--primary))]"
@@ -90,7 +97,6 @@
   {/if}
 </Container>
 
-<!-- Línea divisoria final con margen -->
 <div class="px-4 md:px-4">
   <hr class="border-t border-[hsl(var(--border))]" />
 </div>

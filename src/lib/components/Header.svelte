@@ -28,7 +28,6 @@
 
 <header class="px-1 py-1 md:px-1">
   <div class="flex items-center justify-between">
-    <!-- Avatar a la izquierda -->
     <a href="/" class="flex items-center gap-3">
       <img
         src={Paulina}
@@ -37,7 +36,6 @@
       />
     </a>
 
-    <!-- Nav y theme toggle a la derecha -->
     <div class="flex items-center gap-3">
       <nav class="hidden md:flex md:items-center md:gap-8">
         {#each navLinks as link}
@@ -53,7 +51,6 @@
         {/each}
       </nav>
 
-      <!-- Hamburguesa ANTES de ThemeToggle en mobile -->
       <button
         onclick={toggleMobileMenu}
         aria-label="Toggle menu"

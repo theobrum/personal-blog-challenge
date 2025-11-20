@@ -1,5 +1,6 @@
 import type { NewsletterSubscriber } from '@prisma/client';
 import type { Result, ApiError } from '$lib/api/client';
+import { getErrorMessage } from '$lib/utils/errors.ts';
 
 interface NewsletterResponse {
   success: boolean;
@@ -22,7 +23,7 @@ export function useNewsletter() {
     if (result.success) {
       success = true;
     } else {
-      error = result.error.message;
+      error = getErrorMessage(result.error);
     }
 
     loading = false;

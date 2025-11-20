@@ -7,11 +7,17 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export const newsletterService = {
   validateEmailIsNotNullOrEmpty(email: string): void {
     if (!email || !email.trim()) {
-      throw new ApiError('Email is required', 400);
+      throw new ApiError(
+        'Email address is required. Please enter your email to subscribe to our newsletter.',
+        400
+      );
     }
 
     if (!EMAIL_REGEX.test(email.trim())) {
-      throw new ApiError('Invalid email format', 400);
+      throw new ApiError(
+        'Please enter a valid email address. Make sure it includes an "@" symbol and a domain (e.g., name@example.com).',
+        400
+      );
     }
   },
 
@@ -29,7 +35,10 @@ export const newsletterService = {
 
     const exists = await this.checkIfExists(trimmedEmail);
     if (exists) {
-      throw new ApiError('Email already subscribed', 409);
+      throw new ApiError(
+        "Good news! You're already subscribed to our newsletter. Check your inbox for our latest updates.",
+        409
+      );
     }
 
     const subscriber: NewsletterSubscriber = await prisma.newsletterSubscriber.create({

@@ -1,5 +1,6 @@
 import type { Article } from '@prisma/client';
 import type { Result, ApiError } from '$lib/api/client';
+import { getErrorMessage } from '$lib/utils/errors.ts';
 
 type FetchFunction = () => Promise<Result<Article[], ApiError>>;
 
@@ -17,7 +18,7 @@ export function useArticles(fetchFn: FetchFunction) {
     if (result.success) {
       articles = result.data;
     } else {
-      error = result.error.message;
+      error = getErrorMessage(result.error);
     }
     
     loading = false;
