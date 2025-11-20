@@ -2,6 +2,48 @@
   import { Mail, GithubIcon, LinkedinIcon, ExternalLink, Code2, Mountain, BookOpen, Pencil } from 'lucide-svelte';
   import Container from '$lib/components/Container.svelte';
   import { SITE_CONFIG } from '$lib/config/content';
+
+  const passions = [
+    {
+      icon: Code2,
+      iconClass: 'text-blue-600 dark:text-blue-400',
+      title: 'Development',
+      description: 'Building responsive, accessible web applications with modern technologies like React, SvelteKit, and TypeScript.'
+    },
+    {
+      icon: Mountain,
+      iconClass: 'text-green-600 dark:text-green-400',
+      title: 'Outdoor Activities',
+      description: 'Hiking through mountains, rock climbing challenging routes, and finding balance between screen time and nature time.'
+    },
+    {
+      icon: BookOpen,
+      iconClass: 'text-purple-600 dark:text-purple-400',
+      title: 'Continuous Learning',
+      description: 'Always exploring new coding techniques, design patterns, and best practices to improve my craft.'
+    },
+    {
+      icon: Pencil,
+      iconClass: 'text-amber-600 dark:text-amber-400',
+      title: 'Writing & Sharing',
+      description: 'Documenting my journey, sharing lessons learned, and hopefully inspiring other developers along the way.'
+    }
+  ];
+
+  const socialLinks = [
+    {
+      href: SITE_CONFIG.author.social.github,
+      icon: GithubIcon,
+      label: 'GitHub',
+      show: !!SITE_CONFIG.author.social.github
+    },
+    {
+      href: SITE_CONFIG.author.social.linkedin,
+      icon: LinkedinIcon,
+      label: 'LinkedIn',
+      show: !!SITE_CONFIG.author.social.linkedin
+    }
+  ];
 </script>
 
 <svelte:head>
@@ -35,53 +77,19 @@
       What I'm Passionate About
     </h2>
     <div class="grid gap-6 md:grid-cols-2">
-      <div class="rounded-lg border border-[hsl(var(--border))] p-6">
-        <div class="mb-3 flex items-center gap-2">
-          <Code2 size={24} class="text-blue-600 dark:text-blue-400" />
-          <h3 class="text-xl font-semibold text-[hsl(var(--foreground))]">
-            Development
-          </h3>
+      {#each passions as passion}
+        <div class="rounded-lg border border-[hsl(var(--border))] p-6">
+          <div class="mb-3 flex items-center gap-2">
+            <passion.icon size={24} class={passion.iconClass} />
+            <h3 class="text-xl font-semibold text-[hsl(var(--foreground))]">
+              {passion.title}
+            </h3>
+          </div>
+          <p class="text-[hsl(var(--muted-foreground))]">
+            {passion.description}
+          </p>
         </div>
-        <p class="text-[hsl(var(--muted-foreground))]">
-          Building responsive, accessible web applications with modern technologies like React, SvelteKit, and TypeScript.
-        </p>
-      </div>
-
-      <div class="rounded-lg border border-[hsl(var(--border))] p-6">
-        <div class="mb-3 flex items-center gap-2">
-          <Mountain size={24} class="text-green-600 dark:text-green-400" />
-          <h3 class="text-xl font-semibold text-[hsl(var(--foreground))]">
-            Outdoor Activities
-          </h3>
-        </div>
-        <p class="text-[hsl(var(--muted-foreground))]">
-          Hiking through mountains, rock climbing challenging routes, and finding balance between screen time and nature time.
-        </p>
-      </div>
-
-      <div class="rounded-lg border border-[hsl(var(--border))] p-6">
-        <div class="mb-3 flex items-center gap-2">
-          <BookOpen size={24} class="text-purple-600 dark:text-purple-400" />
-          <h3 class="text-xl font-semibold text-[hsl(var(--foreground))]">
-            Continuous Learning
-          </h3>
-        </div>
-        <p class="text-[hsl(var(--muted-foreground))]">
-          Always exploring new coding techniques, design patterns, and best practices to improve my craft.
-        </p>
-      </div>
-
-      <div class="rounded-lg border border-[hsl(var(--border))] p-6">
-        <div class="mb-3 flex items-center gap-2">
-          <Pencil size={24} class="text-amber-600 dark:text-amber-400" />
-          <h3 class="text-xl font-semibold text-[hsl(var(--foreground))]">
-            Writing & Sharing
-          </h3>
-        </div>
-        <p class="text-[hsl(var(--muted-foreground))]">
-          Documenting my journey, sharing lessons learned, and hopefully inspiring other developers along the way.
-        </p>
-      </div>
+      {/each}
     </div>
   </section>
 
@@ -102,31 +110,20 @@
         Email Me
       </a>
       
-      {#if SITE_CONFIG.author.social.github}
-        <a
-          href={SITE_CONFIG.author.social.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-lg border border-[hsl(var(--border))] px-4 py-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))]"
-        >
-          <GithubIcon size={20} />
-          GitHub
-          <ExternalLink size={16} />
-        </a>
-      {/if}
-      
-      {#if SITE_CONFIG.author.social.linkedin}
-        <a
-          href={SITE_CONFIG.author.social.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-lg border border-[hsl(var(--border))] px-4 py-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))]"
-        >
-          <LinkedinIcon size={20} />
-          LinkedIn
-          <ExternalLink size={16} />
-        </a>
-      {/if}
+      {#each socialLinks as link}
+        {#if link.show}
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-lg border border-[hsl(var(--border))] px-4 py-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))]"
+          >
+            <link.icon size={20} />
+            {link.label}
+            <ExternalLink size={16} />
+          </a>
+        {/if}
+      {/each}
     </div>
   </section>
 
