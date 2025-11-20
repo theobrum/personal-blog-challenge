@@ -19,7 +19,7 @@
   </div>
   
   <div class="mx-auto max-w-full border border-t-0 border-[hsl(var(--border))] bg-[hsl(var(--background))] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[620px]">
-    <main>
+    <main id="main">
       {@render children()}
     </main>
     

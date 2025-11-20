@@ -5,6 +5,7 @@
   import ErrorMessage from '$lib/components/ErrorMessage.svelte';
   import EmptyState from '$lib/components/EmptyState.svelte';
   import { useArticles, fetchAllArticles } from '$lib/hooks/useArticles.svelte';
+  import Divider from '$lib/components/Divider.svelte';
 
   const articlesState = useArticles(fetchAllArticles);
 
@@ -45,6 +46,4 @@
   </section>
 </Container>
 
-<div class="px-4 md:px-4">
-  <hr class="border-t border-[hsl(var(--border))]" />
-</div>
+<Divider />

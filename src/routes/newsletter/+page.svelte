@@ -3,6 +3,7 @@
   import Container from '$lib/components/Container.svelte';
   import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
   import ErrorMessage from '$lib/components/ErrorMessage.svelte';
+  import Divider from '$lib/components/Divider.svelte';
   import { useNewsletter } from '$lib/hooks/useNewsletter.svelte';
 
   const newsletterState = useNewsletter();
@@ -16,6 +17,27 @@
       email = '';
     }
   }
+
+  const features = [
+    {
+      icon: Mail,
+      iconClass: 'text-blue-600 dark:text-blue-400',
+      title: 'New Articles',
+      description: 'Get notified when I publish new content'
+    },
+    {
+      icon: CheckCircle,
+      iconClass: 'text-green-600 dark:text-green-400',
+      title: 'Tips & Tricks',
+      description: 'Exclusive coding tips and best practices'
+    },
+    {
+      icon: CheckCircle,
+      iconClass: 'text-purple-600 dark:text-purple-400',
+      title: 'No Spam',
+      description: 'Quality over quantity, always'
+    }
+  ];
 </script>
 
 <svelte:head>
@@ -100,39 +122,19 @@
     </div>
 
     <div class="mt-12 grid gap-6 md:grid-cols-3">
-      <div class="text-center">
-        <Mail size={32} class="mx-auto mb-3 text-blue-600 dark:text-blue-400" />
-        <h3 class="mb-2 font-semibold text-[hsl(var(--foreground))]">
-          New Articles
-        </h3>
-        <p class="text-sm text-[hsl(var(--muted-foreground))]">
-          Get notified when I publish new content
-        </p>
-      </div>
-
-      <div class="text-center">
-        <CheckCircle size={32} class="mx-auto mb-3 text-green-600 dark:text-green-400" />
-        <h3 class="mb-2 font-semibold text-[hsl(var(--foreground))]">
-          Tips & Tricks
-        </h3>
-        <p class="text-sm text-[hsl(var(--muted-foreground))]">
-          Exclusive coding tips and best practices
-        </p>
-      </div>
-
-      <div class="text-center">
-        <CheckCircle size={32} class="mx-auto mb-3 text-purple-600 dark:text-purple-400" />
-        <h3 class="mb-2 font-semibold text-[hsl(var(--foreground))]">
-          No Spam
-        </h3>
-        <p class="text-sm text-[hsl(var(--muted-foreground))]">
-          Quality over quantity, always
-        </p>
-      </div>
+      {#each features as feature}
+        <div class="text-center">
+          <feature.icon size={32} class="mx-auto mb-3 {feature.iconClass}" />
+          <h3 class="mb-2 font-semibold text-[hsl(var(--foreground))]">
+            {feature.title}
+          </h3>
+          <p class="text-sm text-[hsl(var(--muted-foreground))]">
+            {feature.description}
+          </p>
+        </div>
+      {/each}
     </div>
   {/if}
 </Container>
 
-<div class="px-4 md:px-4">
-  <hr class="border-t border-[hsl(var(--border))]" />
-</div>
+<Divider />

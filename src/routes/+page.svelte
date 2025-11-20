@@ -6,6 +6,7 @@
   import EmptyState from '$lib/components/EmptyState.svelte';
   import AuthorBio from '$lib/components/AuthorBio.svelte';
   import { useArticles, fetchLatestArticles } from '$lib/hooks/useArticles.svelte';
+  import Divider from '$lib/components/Divider.svelte';
 
   const articlesState = useArticles(fetchLatestArticles);
 
@@ -52,6 +53,4 @@
   </section>
 </Container>
 
-<div class="px-4 md:px-4">
-  <hr class="border-t border-[hsl(var(--border))]" />
-</div>
+<Divider />

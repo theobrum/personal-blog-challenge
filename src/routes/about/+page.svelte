@@ -2,6 +2,7 @@
   import { Mail, GithubIcon, LinkedinIcon, ExternalLink, Code2, Mountain, BookOpen, Pencil } from 'lucide-svelte';
   import Container from '$lib/components/Container.svelte';
   import { SITE_CONFIG } from '$lib/config/content';
+  import Divider from '$lib/components/Divider.svelte';
 
   const passions = [
     {
@@ -143,6 +144,4 @@
   </section>
 </Container>
 
-<div class="px-4 md:px-4">
-  <hr class="border-t border-[hsl(var(--border))]" />
-</div>
+<Divider />

@@ -5,6 +5,7 @@
   import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
   import { useArticle, fetchArticleBySlug } from '$lib/hooks/useArticle.svelte';
   import { formatDate } from '$lib/utils/date';
+  import Divider from '$lib/components/Divider.svelte';
 
   const slug = page.params.slug!;
   const articleState = useArticle(fetchArticleBySlug, slug);
@@ -96,6 +97,4 @@
   {/if}
 </Container>
 
-<div class="px-4 md:px-4">
-  <hr class="border-t border-[hsl(var(--border))]" />
-</div>
+<Divider />
