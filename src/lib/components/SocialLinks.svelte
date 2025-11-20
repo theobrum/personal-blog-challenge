@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { Twitter, Github, Linkedin, Code } from 'lucide-svelte';
+  import { X, GithubIcon, LinkedinIcon, Code } from 'lucide-svelte';
   import { SITE_CONFIG } from '$lib/config/content';
 </script>
 
 <div class="flex items-center gap-3">
   <a
-    href={SITE_CONFIG.author.social.twitter}
+    href={SITE_CONFIG.author.social.X}
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="Twitter"
+    aria-label="X"
     class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
   >
-    <Twitter size={20} />
+    <X size={20} />
   </a>
   <a
     href={SITE_CONFIG.author.social.github}
@@ -20,7 +20,7 @@
     aria-label="GitHub"
     class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
   >
-    <Github size={20} />
+    <GithubIcon size={20} />
   </a>
   <a
     href={SITE_CONFIG.author.social.linkedin}
@@ -29,7 +29,7 @@
     aria-label="LinkedIn"
     class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
   >
-    <Linkedin size={20} />
+    <LinkedinIcon size={20} />
   </a>
   <a
     href={SITE_CONFIG.author.social.codepen}

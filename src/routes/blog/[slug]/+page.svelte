@@ -3,7 +3,6 @@
   import { ArrowLeft, Calendar, User } from 'lucide-svelte';
   import Container from '$lib/components/Container.svelte';
   import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
-  import ErrorMessage from '$lib/components/ErrorMessage.svelte';
   import { useArticle, fetchArticleBySlug } from '$lib/hooks/useArticle.svelte';
   import { formatDate } from '$lib/utils/date';
 
