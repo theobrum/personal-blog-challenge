@@ -1,9 +1,11 @@
 <script lang="ts">
+  import Container from '$lib/components/Container.svelte';
   import ArticleCard from '$lib/components/ArticleCard.svelte';
   import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
   import ErrorMessage from '$lib/components/ErrorMessage.svelte';
   import EmptyState from '$lib/components/EmptyState.svelte';
   import { useArticles, fetchAllArticles } from '$lib/hooks/useArticles.svelte';
+  import Divider from '$lib/components/Divider.svelte';
 
   const articlesState = useArticles(fetchAllArticles);
 
@@ -17,12 +19,12 @@
   <meta name="description" content="Read all articles about web development, coding journey, and more." />
 </svelte:head>
 
-<div class="mx-auto max-w-3xl px-4 py-12">
+<Container>
   <header class="mb-12">
-    <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+    <h1 class="mb-4 text-4xl font-bold text-[hsl(var(--foreground))] md:text-5xl">
       Blog
     </h1>
-    <p class="text-lg text-gray-600 dark:text-gray-400">
+    <p class="text-lg text-[hsl(var(--muted-foreground))]">
       Thoughts, tutorials, and experiences from my coding journey
     </p>
   </header>
@@ -42,4 +44,6 @@
       </div>
     {/if}
   </section>
-</div>
+</Container>
+
+<Divider />

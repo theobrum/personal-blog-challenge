@@ -1,18 +1,18 @@
 <script lang="ts">
-  import { Heart, Coffee } from 'lucide-svelte';
   import SocialLinks from './SocialLinks.svelte';
+  import { Heart, Coffee } from 'lucide-svelte';
 </script>
 
-<footer class="border-t border-gray-200 dark:border-gray-800">
-  <div class="mx-auto max-w-5xl px-4 py-8">
-    <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
-      <p class="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-        Made with 
-        <Heart size={16} class="fill-red-500 text-red-500" />
-        and 
-        <Coffee size={16} />
-      </p>
+<footer class="px-4 py-4 md:px-4">
+  <div class="flex flex-row items-center justify-between gap-4">
+    <p class="flex items-center gap-1 text-[12px] text-[hsl(var(--muted-foreground))] sm:text-sm md:text-base">
+      Made with 
+      <Heart size={14} class="text-red-500 sm:h-4 sm:w-4 md:h-5 md:w-5" fill="currentColor" />
+      and 
+      <Coffee size={14} class="text-amber-600 sm:h-4 sm:w-4 md:h-5 md:w-5" />
+    </p>
 
+    <div class="[&_svg]:h-2 [&_svg]:w-2 md:[&_svg]:h-5 md:[&_svg]:w-5">
       <SocialLinks />
     </div>
   </div>

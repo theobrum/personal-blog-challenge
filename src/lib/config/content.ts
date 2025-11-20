@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
       "I started this blog to document my progress, keep myself accountable, and hopefully inspire anyone else who's learning to code. Welcome to my corner of the internet, and thanks for stopping by!"
     ],
     social: {
-      twitter: 'https://X.com',
+      X: 'https://X.com',
       github: 'https://github.com',
       linkedin: 'https://linkedin.com',
       codepen: 'https://codepen.io'

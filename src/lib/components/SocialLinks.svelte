@@ -1,45 +1,25 @@
 <script lang="ts">
-  import { GithubIcon, LinkedinIcon, XIcon } from 'lucide-svelte';
+  import { XIcon, GithubIcon, LinkedinIcon, Code } from 'lucide-svelte';
   import { SITE_CONFIG } from '$lib/config/content';
 
-  const socialLinks = [
-    { 
-      href: SITE_CONFIG.author.social.twitter, 
-      label: 'X',
-      Component: XIcon
-    },
-    { 
-      href: SITE_CONFIG.author.social.github, 
-      label: 'GitHub',
-      Component: GithubIcon
-    },
-    { 
-      href: SITE_CONFIG.author.social.linkedin, 
-      label: 'LinkedIn',
-      Component: LinkedinIcon
-    },
-    { 
-      href: SITE_CONFIG.author.social.codepen, 
-      label: 'CodePen',
-      icon: 'C'
-    }
+  const links = [
+    { href: SITE_CONFIG.author.social.X, icon: XIcon, label: 'X' },
+    { href: SITE_CONFIG.author.social.github, icon: GithubIcon, label: 'GitHub' },
+    { href: SITE_CONFIG.author.social.linkedin, icon: LinkedinIcon, label: 'LinkedIn' },
+    { href: SITE_CONFIG.author.social.codepen, icon: Code, label: 'CodePen' }
   ];
 </script>
 
-<div class="flex gap-3">
-  {#each socialLinks as link}
+<div class="flex items-center gap-3">
+  {#each links as link}
     <a
       href={link.href}
       target="_blank"
       rel="noopener noreferrer"
-      class="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 text-gray-700 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
       aria-label={link.label}
+      class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-2 text-[hsl(var(--foreground))] transition-colors hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--primary))]"
     >
-      {#if link.Component}
-        <svelte:component this={link.Component} size={20} />
-      {:else if link.icon}
-        <span class="text-lg font-bold">{link.icon}</span>
-      {/if}
+      <link.icon size={20} />
     </a>
   {/each}
 </div>

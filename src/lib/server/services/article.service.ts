@@ -2,6 +2,8 @@ import { prisma } from '$lib/server/prisma';
 import type { Article } from '@prisma/client';
 import { ApiError } from './error-handler.service';
 
+const LATEST_ARTICLES_COUNT = 5;
+
 export const articleService = {
   async getAll(): Promise<Article[]> {
     const articles: Article[] = await prisma.article.findMany({
@@ -13,7 +15,7 @@ export const articleService = {
     return articles;
   },
 
-  async getLatest(limit: number = 5): Promise<Article[]> {
+  async getLatest(limit: number = LATEST_ARTICLES_COUNT): Promise<Article[]> {
     const articles: Article[] = await prisma.article.findMany({
       orderBy: {
         publishedDate: 'desc'
@@ -30,7 +32,10 @@ export const articleService = {
     });
 
     if (!article) {
-      throw new ApiError('Article not found', 404);
+      throw new ApiError(
+        "We couldn't find that article. It may have been moved or deleted. Please check the URL or browse our blog for other articles.",
+        404
+      );
     }
 
     return article;

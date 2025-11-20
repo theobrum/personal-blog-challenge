@@ -1,7 +1,9 @@
 <script lang="ts">
   import { Mail, CheckCircle } from 'lucide-svelte';
+  import Container from '$lib/components/Container.svelte';
   import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
   import ErrorMessage from '$lib/components/ErrorMessage.svelte';
+  import Divider from '$lib/components/Divider.svelte';
   import { useNewsletter } from '$lib/hooks/useNewsletter.svelte';
 
   const newsletterState = useNewsletter();
@@ -15,6 +17,27 @@
       email = '';
     }
   }
+
+  const features = [
+    {
+      icon: Mail,
+      iconClass: 'text-blue-600 dark:text-blue-400',
+      title: 'New Articles',
+      description: 'Get notified when I publish new content'
+    },
+    {
+      icon: CheckCircle,
+      iconClass: 'text-green-600 dark:text-green-400',
+      title: 'Tips & Tricks',
+      description: 'Exclusive coding tips and best practices'
+    },
+    {
+      icon: CheckCircle,
+      iconClass: 'text-purple-600 dark:text-purple-400',
+      title: 'No Spam',
+      description: 'Quality over quantity, always'
+    }
+  ];
 </script>
 
 <svelte:head>
@@ -22,32 +45,29 @@
   <meta name="description" content="Subscribe to Paulina's newsletter to get the latest articles and updates delivered to your inbox." />
 </svelte:head>
 
-<div class="mx-auto max-w-2xl px-4 py-12">
+<Container>
   <div class="text-center">
-    <!-- Icon -->
     <div class="mb-6 flex justify-center">
       <div class="rounded-full bg-blue-100 p-4 dark:bg-blue-900/30">
         <Mail size={48} class="text-blue-600 dark:text-blue-400" />
       </div>
     </div>
 
-    <!-- Header -->
-    <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
+    <h1 class="mb-4 text-4xl font-bold text-[hsl(var(--foreground))] md:text-5xl">
       Stay in the Loop
     </h1>
-    <p class="mb-8 text-xl text-gray-600 dark:text-gray-400">
+    <p class="mb-8 text-xl text-[hsl(var(--muted-foreground))]">
       Get new articles and updates delivered straight to your inbox
     </p>
   </div>
 
-  <!-- Success State -->
   {#if newsletterState.success}
     <div class="rounded-lg bg-green-50 p-8 text-center dark:bg-green-900/20">
       <CheckCircle size={48} class="mx-auto mb-4 text-green-600 dark:text-green-400" />
-      <h2 class="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
+      <h2 class="mb-2 text-2xl font-bold text-[hsl(var(--foreground))]">
         You're Subscribed!
       </h2>
-      <p class="mb-6 text-gray-700 dark:text-gray-300">
+      <p class="mb-6 text-[hsl(var(--muted-foreground))]">
         Thanks for subscribing! Check your inbox for a confirmation email.
       </p>
       <button
@@ -58,11 +78,10 @@
       </button>
     </div>
   {:else}
-    <!-- Subscription Form -->
-    <div class="rounded-lg border border-gray-200 bg-white p-8 shadow-sm dark:border-gray-800 dark:bg-gray-900">
+    <div class="rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-8 shadow-sm">
       <form onsubmit={handleSubmit} class="space-y-6">
         <div>
-          <label for="email" class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label for="email" class="mb-2 block text-sm font-medium text-[hsl(var(--foreground))]">
             Email Address
           </label>
           <input
@@ -70,9 +89,10 @@
             id="email"
             bind:value={email}
             required
+            autocomplete="email"
             placeholder="you@example.com"
             disabled={newsletterState.loading}
-            class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+            class="w-full rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] px-4 py-3 text-[hsl(var(--foreground))] focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
           />
         </div>
 
@@ -96,43 +116,25 @@
         </button>
       </form>
 
-      <!-- Privacy Notice -->
-      <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+      <p class="mt-6 text-center text-sm text-[hsl(var(--muted-foreground))]">
         No spam, ever. Unsubscribe at any time.
       </p>
     </div>
 
-    <!-- Benefits -->
     <div class="mt-12 grid gap-6 md:grid-cols-3">
-      <div class="text-center">
-        <div class="mb-3 text-3xl">📬</div>
-        <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">
-          New Articles
-        </h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          Get notified when I publish new content
-        </p>
-      </div>
-
-      <div class="text-center">
-        <div class="mb-3 text-3xl">💡</div>
-        <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">
-          Tips & Tricks
-        </h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          Exclusive coding tips and best practices
-        </p>
-      </div>
-
-      <div class="text-center">
-        <div class="mb-3 text-3xl">🎯</div>
-        <h3 class="mb-2 font-semibold text-gray-900 dark:text-white">
-          No Spam
-        </h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          Quality over quantity, always
-        </p>
-      </div>
+      {#each features as feature}
+        <div class="text-center">
+          <feature.icon size={32} class="mx-auto mb-3 {feature.iconClass}" />
+          <h3 class="mb-2 font-semibold text-[hsl(var(--foreground))]">
+            {feature.title}
+          </h3>
+          <p class="text-sm text-[hsl(var(--muted-foreground))]">
+            {feature.description}
+          </p>
+        </div>
+      {/each}
     </div>
   {/if}
-</div>
+</Container>
+
+<Divider />

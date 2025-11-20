@@ -1,23 +1,30 @@
 <script lang="ts">
-  import { formatDate } from '$lib/utils/date.ts';
+  import { Calendar } from 'lucide-svelte';
+  import { formatDate } from '$lib/utils/date';
   import type { Article } from '@prisma/client';
 
-  type Props = {
+  interface Props {
     article: Article;
-  };
+  }
 
   let { article }: Props = $props();
 </script>
 
-<article class="group">
+<article class="group rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-6 transition-shadow hover:shadow-md">
   <a href="/blog/{article.slug}" class="block">
-    <h3
-      class="text-xl font-bold text-gray-900 transition-colors group-hover:text-gray-600 dark:text-white dark:group-hover:text-gray-300"
-    >
+    <h3 class="mb-3 text-2xl font-bold text-[hsl(var(--foreground))] transition-colors group-hover:text-[hsl(var(--primary))]">
       {article.title}
     </h3>
-    <time class="mt-2 block text-sm text-gray-600 dark:text-gray-400">
-      {formatDate(article.publishedDate)}
-    </time>
+    
+    <div class="mb-4 flex items-center gap-2 text-sm text-[hsl(var(--muted-foreground))]">
+      <Calendar size={16} />
+      <time datetime={article.publishedDate.toString()}>
+        {formatDate(article.publishedDate)}
+      </time>
+    </div>
+    
+    <p class="text-[hsl(var(--muted-foreground))] leading-relaxed">
+      {article.excerpt}
+    </p>
   </a>
 </article>
